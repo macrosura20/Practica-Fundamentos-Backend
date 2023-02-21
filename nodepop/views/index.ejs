@@ -10,9 +10,9 @@
     <h2>Lista de Anuncios</h2>
     <% anuncios.forEach(anuncios => { %>
       <p>Nombre: <%= anuncios.nombre %></p>
-      <p>Precio: <%= anuncios.precio %>€</p>
+      <p>Precio: <%= (Math.round(anuncios.precio * 100) / 100).toFixed(2) %>€</p>
       <p>Tags: <%= anuncios.tags %></p>
-      <img src= <%=`../images/${anuncios.foto}` %> alt="Foto de Bicicleta">
+      <img src= <%=`../images/${anuncios.foto}` %> alt=<%=`Foto de ${anuncios.nombre}`  %>>
      <% })%> 
   </body>
 </html>
