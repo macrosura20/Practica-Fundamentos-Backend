@@ -6,8 +6,8 @@ const Anuncio = require('../../models/Anuncio')
 //CRUD: create, read, update, delete
 
 
-//GET /api/agentes
-//http://127.0.0.1:3000/api/agentes?sort=-age&skip=2&limit=2
+//GET /api/anuncios
+//http://127.0.0.1:3000/api/anuncios?sort=-age&skip=2&limit=2
 //Devuelve una lista de anuncios
  router.get('/', async(req, res, next) => {
   try {
@@ -53,9 +53,29 @@ const Anuncio = require('../../models/Anuncio')
  
  }) 
 
+ //GET appi/anuncios/listaTags
  router.get('/listaTags', async(req, res, next) => {
    const listaTags = await Anuncio.listaTags()
    res.send(listaTags)
  })
+
+ //POST/api/anuncios(body)
+ //Crea un anuncio
+ router.post('/', async (req, res, next) => {
+  try{
+      const anuncioData = req.body
+
+      //creamos una instancia de Agente
+      const anuncio = new Anuncio(anuncioData)
+
+      //la persistimos en la BBDD
+      const anuncioGuardado = await anuncio.save()
+
+      res.json({result: anuncioGuardado})
+
+  }catch(error){
+      next(error)
+  }
+})
  
  module.exports = router
