@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Bienvenido a <%= title %></p>
-    <h2>Lista de Anuncios</h2>
+
+<h2>Lista de Anuncios</h2>
     <% anuncios.forEach(anuncios => { %>
       <p>Nombre: <%= anuncios.nombre %></p>
       <p>Precio: <%= (Math.round(anuncios.precio * 100) / 100).toFixed(2) %>€</p>
@@ -19,5 +11,3 @@
       <p>Tags: <%= anuncios.tags %></p>
       <img src= <%=`../images/${anuncios.foto}` %> alt=<%=`Foto de ${anuncios.nombre}`  %> width="300px" height=auto>
      <% })%> 
-  </body>
-</html>
