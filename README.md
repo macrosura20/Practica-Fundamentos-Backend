@@ -36,8 +36,9 @@ GET http://127.0.0.1:3000/api/anuncios?nombre=sam
 GET http://127.0.0.1:3000/api/anuncios/listaTags
 
 GET http://127.0.0.1:3000/api/anuncios?nombre=sam
+
 POST 
 ```sh
-{"result":{"nombre":"lampara","venta":true,"precio":25,"tags":["lifestyle","work"]}
+{"nombre":"lampara","venta":true,"precio":25,"tags":["lifestyle","work"]}
 ```
 

@@ -45,7 +45,7 @@ const Anuncio = require('../../models/Anuncio')
     }
     const anuncios = await Anuncio.lista(filtro, skip, limit, sort, fields);
     res.locals.anuncios = anuncios
-    res.render('mostrarAnuncios');
+    res.json(anuncios)
   
   } catch (error) {
     next(error);
