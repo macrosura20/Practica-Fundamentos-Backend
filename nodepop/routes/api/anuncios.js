@@ -53,8 +53,8 @@ const Anuncio = require('../../models/Anuncio')
  
  }) 
 
- //GET appi/anuncios/listaTags
- router.get('/listaTags', async(req, res, next) => {
+ //GET api/anuncios/tags
+ router.get('/tags', async(req, res, next) => {
    const listaTags = await Anuncio.listaTags()
    res.json(listaTags)
  })

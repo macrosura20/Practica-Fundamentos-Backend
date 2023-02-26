@@ -66,7 +66,7 @@ Filtros de búsqueda.
 
 Lista de todos los Tags de los anuncios
  
- GET http://127.0.0.1:3000/api/anuncios/listaTags
+ GET http://127.0.0.1:3000/api/anuncios/tags
 
 Creación de un anuncio
 
