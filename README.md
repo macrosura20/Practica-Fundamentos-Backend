@@ -23,22 +23,55 @@ Application created with:
 npx express-generator nodepop --ejs
 ```
 
+## Modelo del anuncio
+```sh
+const anuncioSchema = mongoose.Schema({
+    nombre: String,
+    venta: Boolean, *False = Se Busca, True = Se vende
+    precio: Number,
+    foto: String,
+    tags: [String]
+})
+```
+
 ## WebSite
+Informacion de todos los anuncios.
+
 GET http://127.0.0.1:3000/
 
-GET http://127.0.0.1:3000/?sort=-nombre&venta=true&tags=lifestyle&tags=mobile
+Filtros de búsqueda.
+- skip
+- limit
+- sort
+- fields
 
-GET http://127.0.0.1:3000/listaTags
+ GET http://127.0.0.1:3000/?sort=-nombre&venta=true&tags=lifestyle&tags=mobile
+
+
 
 ## API Methods
-GET http://127.0.0.1:3000/api/anuncios?nombre=sam
+Informacion de todos los anuncios.
 
-GET http://127.0.0.1:3000/api/anuncios/listaTags
+GET http://127.0.0.1:3000/api/anuncios
 
-GET http://127.0.0.1:3000/api/anuncios?nombre=sam
 
-POST 
+Filtros de búsqueda.
+- skip
+- limit
+- sort
+- fields
+
+ GET http://127.0.0.1:3000/api/anuncios?sort=-nombre&venta=true&tags=lifestyle&tags=mobile
+
+
+Lista de todos los Tags de los anuncios
+ 
+ GET http://127.0.0.1:3000/api/anuncios/listaTags
+
+Creación de un anuncio
+
+POST http://127.0.0.1:3000/api/anuncios
 ```sh
-{"nombre":"lampara","venta":true,"precio":25,"tags":["lifestyle","work"]}
+JSON: {"nombre":"lampara","venta":true,"precio":25,"tags":["lifestyle","work"]}
 ```
 

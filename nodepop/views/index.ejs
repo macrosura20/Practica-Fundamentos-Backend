@@ -8,16 +8,18 @@
     <h1><%= title %></h1>
     <p>Bienvenido a <%= title %></p>
     <h2>Lista de Anuncios</h2>
-    <% anuncios.forEach(anuncios => { %>
-      <p>Nombre: <%= anuncios.nombre %></p>
-      <p>Precio: <%= (Math.round(anuncios.precio * 100) / 100).toFixed(2) %>€</p>
-      <% if (anuncios.venta){ %>
-      <p>Estado: En Venta</p>
-      <% } else{ %>
-        <p>Estado: Se Busca</p>
-      <% } %>
-      <p>Tags: <%= anuncios.tags %></p>
-      <img src= <%=`../images/${anuncios.foto}` %> alt=<%=`Foto de ${anuncios.nombre}`  %> width="300px" height=auto>
-     <% })%> 
+    <div class = "anuncio">
+      <% anuncios.forEach(anuncios => { %>
+        <p>Nombre: <%= anuncios.nombre %></p>
+        <p>Precio: <%= (Math.round(anuncios.precio * 100) / 100).toFixed(2) %>€</p>
+        <% if (anuncios.venta){ %>
+        <p>Estado: En Venta</p>
+        <% } else{ %>
+          <p>Estado: Se Busca</p>
+        <% } %>
+        <p>Tags: <%= anuncios.tags %></p>
+        <img src= <%=`../images/${anuncios.foto}` %> alt=<%=`Foto de ${anuncios.nombre}`  %> width="300px" height=auto>
+       <% })%> 
+    </div>
   </body>
 </html>

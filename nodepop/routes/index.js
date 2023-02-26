@@ -19,8 +19,6 @@ router.get('/', async(req, res, next) => {
     // selección de campos
     const fields = req.query.fields
   
-  
-
     const filtro = {};
   
     if (filterByName) {
@@ -47,12 +45,5 @@ router.get('/', async(req, res, next) => {
   }
  
  }) 
-
-router.get('/listaTags', async function (req, res, next) {
-  const anuncios = await Anuncio.find().distinct('tags')
-  console.log(anuncios)
-  res.send(anuncios)
-})
-
 
 module.exports = router;
