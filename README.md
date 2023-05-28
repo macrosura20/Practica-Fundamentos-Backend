@@ -1,4 +1,4 @@
-# Practica-Fundamentos-Backend
+# Practica-Backend-Avanzado
 ## NodeApp
 
 Install dependencies with:
@@ -50,6 +50,11 @@ Filtros de búsqueda.
 
 
 ## API Methods
+Login por Api
+```sh
+email: user@example.es
+password: 1234
+```
 Informacion de todos los anuncios.
 
 GET http://127.0.0.1:3000/api/anuncios
