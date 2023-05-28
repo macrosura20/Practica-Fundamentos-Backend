@@ -1,6 +1,7 @@
 'use strict'
 
-const Anuncio = require('../models/Anuncio')
+require('dotenv').config();
+const { Anuncio, Usuario } = require('../models');
 const connection = require('../lib/connectMongoose')
 
 main().catch(err => console.log('Hubo un error', err))
@@ -8,6 +9,9 @@ main().catch(err => console.log('Hubo un error', err))
 async function main(){
     //inicializamos coleccion de agentes
     await initAnuncios()
+
+    // inicializamos colección de usuarios
+    await initUsuarios();
 
     connection.close()
 
@@ -31,3 +35,16 @@ async function initAnuncios(){
     ])
     console.log(`Creados ${inserted.length} anuncios`)
 }
+
+async function initUsuarios() {
+    // borrar todos los documentos de usuarios
+    const deleted = await Usuario.deleteMany();
+    console.log(`Eliminados ${deleted.deletedCount} usuarios.`);
+  
+    // crear usuarios iniciales
+    const inserted = await Usuario.insertMany([
+        { email: 'admin@example.com', password: await Usuario.hashPassword('1234')},
+        { email: 'usuario@example.com', password: await Usuario.hashPassword('1234')},
+    ]);
+    console.log(`Creados ${inserted.length} usuarios.`);
+  }

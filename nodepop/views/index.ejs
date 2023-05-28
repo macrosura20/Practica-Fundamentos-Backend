@@ -1,25 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Bienvenido a <%= title %></p>
-    <h2>Lista de Anuncios</h2>
-    <div class = "anuncio">
-      <% anuncios.forEach(anuncios => { %>
-        <p>Nombre: <%= anuncios.nombre %></p>
-        <p>Precio: <%= (Math.round(anuncios.precio * 100) / 100).toFixed(2) %>€</p>
-        <% if (anuncios.venta){ %>
-        <p>Estado: En Venta</p>
-        <% } else{ %>
-          <p>Estado: Se Busca</p>
-        <% } %>
-        <p>Tags: <%= anuncios.tags %></p>
-        <img src= <%=`../images/${anuncios.foto}` %> alt=<%=`Foto de ${anuncios.nombre}`  %> width="300px" height=auto>
-       <% })%> 
+<% include cabecera.ejs %>
+
+  <!-- Mashead header-->
+  <header class="masthead">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <!-- Mashead text and app badges-->
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h1 class="display-1 lh-1 mb-3"> <%= __('Welcome to') %> <%= title %></h1>
+                    <div class=" anuncios">
+                        <ul>
+                          <% anuncios.forEach(anuncios => { %>
+                          <p><%= __('Name') %>: <%= anuncios.nombre %></p>
+                          <p><%= __('Price') %>: <%= (Math.round(anuncios.precio * 100) / 100).toFixed(2) %>€</p>
+                          <% if (anuncios.venta){ %>
+                          <p><%= __('Status') %>: <%= __('To sell') %></p>
+                          <% } else{ %>
+                            <p><%= __('Status') %>: <%= __('To buy') %></p>
+                          <% } %>
+                          <p>Tags: <%= anuncios.tags %></p>
+                          <div class="imagen">
+                            <img src= <%=`../images/${anuncios.foto}` %> alt=<%=`Foto de ${anuncios.nombre}`  %> width="300px" height=auto>
+                          </div>
+                         <% })%>
+                        </ul>
+                       
+                    </div>
+                   
+        </div>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</header>
+
+
+<% include pie.ejs %>
