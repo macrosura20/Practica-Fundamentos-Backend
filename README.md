@@ -1,8 +1,12 @@
 # Configuracion de Servidores
+## Nodepop-Backend
+
+http://54.211.6.76
+
 ## Nodepop-React
-```sh
-ec2-54-211-6-76.compute-1.amazonaws.com
-```
+
+http://ec2-54-211-6-76.compute-1.amazonaws.com
+
 
 # Practica-Backend-Avanzado
 ## NodeApp
